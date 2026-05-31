@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "edgeMachineName": {
+      "value": "<your-edge-machine-name>"
+    },
+    "controlPlaneIp": {
+      "value": "<static-ip-for-k8s-api-server>"
+    },
+    "adminGroupObjectIds": {
+      "value": ["<entra-id-group-object-id>"]
+    },
+    "sshPublicKey": {
+      "value": "<contents-of-your-ssh-public-key>"
+    }
+  }
+}
