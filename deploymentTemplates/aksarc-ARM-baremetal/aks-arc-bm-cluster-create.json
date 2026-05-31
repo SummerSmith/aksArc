@@ -168,7 +168,7 @@
     },
     {
       "type": "Microsoft.AzureStackHCI/logicalNetworks",
-      "apiVersion": "2024-09-01-preview",
+      "apiVersion": "2024-01-01",
       "name": "[variables('lnetName')]",
       "location": "[parameters('location')]",
       "extendedLocation": {
