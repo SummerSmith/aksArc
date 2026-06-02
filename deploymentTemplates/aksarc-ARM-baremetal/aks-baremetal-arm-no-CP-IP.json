@@ -27,6 +27,13 @@
         "description": "Kubernetes version (e.g., 1.34.3-20260204)."
       }
     },
+    "controlPlaneIp": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "Static IP for the Kubernetes API server. Leave empty for auto-assignment."
+      }
+    },
     "enableAzureRbac": {
       "type": "bool",
       "defaultValue": true,
@@ -240,9 +247,7 @@
       ],
       "properties": {
         "kubernetesVersion": "[parameters('kubernetesVersion')]",
-        "controlPlane": {
-          "count": "[variables('controlPlaneCount')]"
-        },
+        "controlPlane": "[if(empty(parameters('controlPlaneIp')), createObject('count', variables('controlPlaneCount')), createObject('count', variables('controlPlaneCount'), 'controlPlaneEndpoint', createObject('hostIP', parameters('controlPlaneIp'))))]",
         "networkProfile": {
           "podCidr": "[variables('podCidr')]",
           "loadBalancerProfile": {
